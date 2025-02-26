@@ -1,3 +1,3 @@
-public class Mostro {
+public class Mob {
     
 }

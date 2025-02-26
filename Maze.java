@@ -1,3 +1,3 @@
-public class Labirinto {
+public class Maze {
     
 }
