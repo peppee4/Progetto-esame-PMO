@@ -1,36 +1,39 @@
-public class Player extends Character{
-
+public class Player {
+    private int x;
+    private int y;
     private int numberOfLifes;
 
-    public Player(int x, int y, int lifes) {
-            super(x, y);
-            this.numberOfLifes = lifes;
+    public Player(int x, int y, int numberOfLifes) {
+        this.x = x;
+        this.y = y;
+        this.numberOfLifes = numberOfLifes;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getNumberOfLifes() {
+        return numberOfLifes;
+    }
+
+    public void loseOneLife() {
+        numberOfLifes--;
+    }
+
+    public void move(int dx, int dy, Maze maze) {
+        int newX = x + dx;
+        int newY = y + dy;
+
+        if (maze.isValidPosition(newX, newY)) {
+            x = newX;
+            y = newY;
+        } else {
+            System.out.println("Movimento non valido!");
         }
-
-    // Metodo per ottenere la coordinata x del player
-    public int getX(){
-        return this.x;
     }
-
-    // Metodo per ottenere la coordinata y del player
-    public int getY(){
-        return this.y;
-    }
-
-    // METODO PER OTTENERE IL NUMERO DI VITE DEL PLAYER
-    public int getNumberOfLifes(){
-        return this.numberOfLifes;
-    }
-
-    // METODO PER DIMINUIRE IL NUMERO DI VITA DI UNA UNITA' IN CASO DI CONTATTO CON ENTITA' MOB
-    public void loseOneLife(){
-        this.numberOfLifes--;
-    }
-    
-        @Override
-    public void move(int dx, int dy) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'move'");
-    }
-    
 }

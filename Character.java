@@ -1,4 +1,4 @@
-public abstract class Character {
+public class Character {
 
     protected int x, y; // Posizione dell'entità nel labirinto
 
@@ -15,5 +15,7 @@ public abstract class Character {
     }
 
     // Metodo per il movimento, implementato nelle sottoclassi in quanto hanno esigenze diverse
-    public abstract void move(int dx, int dy);
+    public void move(int dx, int dy){
+        
+    };
 }
