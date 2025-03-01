@@ -33,7 +33,8 @@ public class Maze {
         }
     }
 
+    // Funzione per controllare la correttezza del movimento
     public boolean isValidPosition(int x, int y) {
-        return x >= 0 && x < maze.length && y >= 0 && y < maze[0].length && maze[x][y] == 0;
+        return maze[x][y] == 0;
     }
 }
