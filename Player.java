@@ -10,28 +10,28 @@ public class Player {
     }
 
     public int getX() {
-        return x;
+        return this.x;
     }
 
     public int getY() {
-        return y;
+        return this.y;
     }
 
     public int getNumberOfLifes() {
-        return numberOfLifes;
+        return this.numberOfLifes;
     }
 
     public void loseOneLife() {
-        numberOfLifes--;
+        this.numberOfLifes--;
     }
 
     public void move(int dx, int dy, Maze maze) {
-        int newX = x + dx;
-        int newY = y + dy;
+        int newX = this.x + dx;
+        int newY = this.y + dy;
 
         if (maze.isValidPosition(newX, newY)) {
-            x = newX;
-            y = newY;
+            this.x = newX;
+            this.y = newY;
         } else {
             System.out.println("Movimento non valido!");
         }

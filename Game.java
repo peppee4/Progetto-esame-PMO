@@ -11,11 +11,20 @@ public class Game implements KeyListener {
         player = new Player(1, 1, 3);
         maze = new Maze(player);
 
-        // Configurazione di una finestra invisibile per catturare gli eventi della tastiera
+        // Creo il frame
         JFrame frame = new JFrame();
-        frame.setSize(1, 1); // Finestra molto piccola (quasi invisibile)
+        frame.setSize(1280, 720);
+        frame.setTitle("Escape");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.addKeyListener(this); // Aggiungi il KeyListener alla finestra
+
+        // Creo il pannello e gli imposto il bordino
+        final JPanel panel = new JPanel();
+
+        // Aggiungio il pannello al frame
+        frame.getContentPane().add(panel);
+
+        // Aggiungi il KeyListener alla finestra
+        frame.addKeyListener(this); 
         frame.setVisible(true);
     }
 
@@ -38,10 +47,6 @@ public class Game implements KeyListener {
             case KeyEvent.VK_D:
                 dy = 1; // Muovi a destra
                 break;
-            case KeyEvent.VK_Q:
-                System.out.println("Hai scelto di uscire dal gioco.");
-                System.exit(0); // Esci dal gioco
-                break;
             default:
                 System.out.println("Comando non valido!");
                 return;
@@ -56,12 +61,10 @@ public class Game implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        // Non necessario per questo esempio
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // Non necessario per questo esempio
     }
 
     public static void main(String[] args) {
