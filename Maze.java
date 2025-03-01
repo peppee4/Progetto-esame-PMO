@@ -18,6 +18,10 @@ public class Maze {
         this.player = player;
     }
 
+    public int[][] getMaze() {
+        return maze;
+    }
+
     public void printMaze() {
         for (int i = 0; i < maze.length; i++) {
             for (int j = 0; j < maze[i].length; j++) {
@@ -34,6 +38,6 @@ public class Maze {
     }
 
     public boolean isValidPosition(int x, int y) {
-        return x >= 0 && x < maze.length && y >= 0 && y < maze[0].length && maze[x][y] == 0;
+        return maze[x][y] == 0;
     }
 }
