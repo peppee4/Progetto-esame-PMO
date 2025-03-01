@@ -7,6 +7,16 @@ public class Player extends Character{
             this.numberOfLifes = lifes;
         }
 
+    // Metodo per ottenere la coordinata x del player
+    public int getX(){
+        return this.x;
+    }
+
+    // Metodo per ottenere la coordinata y del player
+    public int getY(){
+        return this.y;
+    }
+
     // METODO PER OTTENERE IL NUMERO DI VITE DEL PLAYER
     public int getNumberOfLifes(){
         return this.numberOfLifes;

@@ -1,6 +1,8 @@
 public class Game {
     public static void main(String[] args) {
         Maze m = new Maze();
-        m.printMaze();
+        Player p = new Player(1, 1, 3);
+        m.printMaze(p);
+
     }
 }
