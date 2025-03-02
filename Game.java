@@ -1,12 +1,12 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.*;
-import java.awt.Graphics;
+
 
 public class Game implements KeyListener {
     private Maze maze;
     private Player player;
-    private Graphics g;
+    private MazePanel mazepanel;
 
     public Game() {
         // Inizializzazione del giocatore e del labirinto
@@ -16,15 +16,16 @@ public class Game implements KeyListener {
         // Creo il frame
         JFrame frame = new JFrame();
         frame.setSize(1280, 720);
+        frame.setResizable(false);
+        frame.setLocationRelativeTo(frame);
         frame.setTitle("Escape");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Creo il pannello e gli imposto il bordino
-        MazePanel mazePanel = new MazePanel(maze, player);
-        mazePanel.paintComponents(g);
+        this.mazepanel = new MazePanel(maze, player);
 
         // Aggiungio il pannello al frame
-        frame.getContentPane().add(mazePanel);
+        frame.getContentPane().add(this.mazepanel);
 
         // Aggiungi il KeyListener alla finestra
         frame.addKeyListener(this); 
@@ -38,16 +39,16 @@ public class Game implements KeyListener {
 
         // Gestione dei tasti premuti
         switch (keyCode) {
-            case KeyEvent.VK_W:
+            case KeyEvent.VK_A:
                 dx = -1; // Muovi su
                 break;
-            case KeyEvent.VK_S:
+            case KeyEvent.VK_D:
                 dx = 1; // Muovi giù
                 break;
-            case KeyEvent.VK_A:
+            case KeyEvent.VK_W:
                 dy = -1; // Muovi a sinistra
                 break;
-            case KeyEvent.VK_D:
+            case KeyEvent.VK_S:
                 dy = 1; // Muovi a destra
                 break;
             default:
@@ -57,8 +58,9 @@ public class Game implements KeyListener {
 
         // Muovi il giocatore
         player.move(dx, dy, maze);
-
-        // Ridisegna il labirinto
+        
+        // Aggiorna il labirinto
+        this.mazepanel.repaint();
         maze.printMaze();
     }
 
