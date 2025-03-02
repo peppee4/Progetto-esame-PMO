@@ -1,3 +1,7 @@
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import javax.swing.*;
+
 
 public class Game implements KeyListener {
     private Maze maze;
@@ -57,7 +61,7 @@ public class Game implements KeyListener {
         
         // Aggiorna il labirinto
         this.mazepanel.repaint();
-        maze.printMaze();
+        
     }
 
     @Override
