@@ -1,10 +1,12 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.*;
+import java.awt.Graphics;
 
 public class Game implements KeyListener {
     private Maze maze;
     private Player player;
+    private Graphics g;
 
     public Game() {
         // Inizializzazione del giocatore e del labirinto
@@ -18,10 +20,11 @@ public class Game implements KeyListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Creo il pannello e gli imposto il bordino
-        final JPanel panel = new JPanel();
+        MazePanel mazePanel = new MazePanel(maze, player);
+        mazePanel.paintComponents(g);
 
         // Aggiungio il pannello al frame
-        frame.getContentPane().add(panel);
+        frame.getContentPane().add(mazePanel);
 
         // Aggiungi il KeyListener alla finestra
         frame.addKeyListener(this); 
